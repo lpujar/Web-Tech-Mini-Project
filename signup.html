@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding-top: 75px; /* Adds space for the navbar */
+        }
+
+        .container {
+            background-color: #3A3D5C;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px; /* Extra margin to prevent overlap */
+        }
+
+        h2 {
+            text-align: center;
+            color: #FFD166;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #FFD166;
+            color: #2B2D42;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #E9C46A;
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-switch a {
+            color: #FFD166;
+            cursor: pointer;
+        }
+
+        /* Dark Mode & Colorblind Mode Styles */
+        .dark-mode {
+            background-color: #1C1C2E;
+            color: #EDF2F4;
+        }
+
+        .colorblind-mode {
+            background-color: #E5E5E5;
+            color: #202020;
+        }
+
+        .colorblind-mode input {
+            background-color: #BDBDBD;
+        }
+
+        .colorblind-mode button {
+            background-color: #000;
+            color: #FFF;
+        }
+
+        .colorblind-mode a {
+            color: #0000FF;
+        }
+
+        /* Navbar & Toggle Button Styles */
+        .navbar {
+            background-color: #343a40;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .navbar-toggler {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">GLV Architects</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"> <!-- Navbar aligned to right -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="appointment.html">Book an Appointment</a></li>
+                </ul>
+                <div class="toggle ml-auto">
+                    <button onclick="toggleDarkMode()">Dark Mode</button>
+                    <button onclick="toggleColorblindMode()">Colorblind Mode</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="container" id="loginForm" role="form" aria-labelledby="loginHeading">
+        <h2 id="loginHeading">Login</h2>
+        <form aria-labelledby="loginForm">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" required aria-required="true" aria-describedby="loginUsernameDesc">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required aria-required="true" aria-describedby="loginPasswordDesc">
+            <button type="button" onclick="authenticate()" aria-label="Login">Login</button>
+            <p id="loginError" style="color: red; display: none;" aria-live="assertive">Invalid credentials, please try again.</p>
+        </form>
+        <div class="form-switch">
+            <p>Don't have an account? <a id="signupLink" aria-label="Switch to signup form">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="container" id="signupForm" style="display: none;" role="form" aria-labelledby="signupHeading">
+        <h2 id="signupHeading">Signup</h2>
+        <form id="registrationForm" aria-labelledby="signupForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required aria-required="true">
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required aria-required="true">
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required aria-required="true">
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required aria-required="true"></textarea>
+
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required aria-required="true">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number.">
+            <small style="color: #FFD166;">Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number.</small>
+
+            <button type="button" onclick="submitRegistration()" aria-label="Sign up">Sign Up</button>
+        </form>
+        <div class="form-switch">
+            <p>Already have an account? <a id="loginLink" aria-label="Switch to login form">Log In</a></p>
+        </div>
+    </div>
+
+    <script>
+        let userData = JSON.parse(localStorage.getItem('userData')) || {};
+
+        function authenticate() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (userData.username === username && userData.password === password) {
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        function submitRegistration() {
+            const firstName = document.getElementById('firstName').value;
+            const surname = document.getElementById('surname').value;
+            const gender = document.getElementById('gender').value;
+            const address = document.getElementById('address').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            userData = { firstName, surname, gender, address, username, password };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            alert('Registration Successful');
+            showLoginForm();
+        }
+
+        document.getElementById('signupLink').addEventListener('click', showSignupForm);
+        document.getElementById('loginLink').addEventListener('click', showLoginForm);
+
+        function showSignupForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle('colorblind-mode');
+        }
+    </script>
+</body>
+
+</html>

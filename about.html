@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GLV Architects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #2B2D42;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .about-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .team-section {
+            background-color: #edf2f4;
+            padding: 60px 20px;
+        }
+
+        .team-section h2 {
+            margin-bottom: 40px;
+        }
+
+        .team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .team-card img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .team-card h3 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #1d1e21;
+            color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+        }
+
+        .dark-mode nav {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode nav a {
+            color: #FFD166;
+        }
+
+        .dark-mode h2 {
+            color: #FFD166;
+        }
+
+        .dark-mode .about-section {
+            background-color: #3A3D5C;
+            color: #EDF2F4;
+        }
+
+        .dark-mode .team-section {
+            background-color: #2B2D42;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+        .dark-mode .team-card h3,
+        .dark-mode .team-card p {
+        color: #1C1C2E; 
+        }
+
+
+        /* Colorblind Mode */
+        .colorblind-mode {
+            background-color: #F5F5F5;
+            color: #202020;
+        }
+
+        .colorblind-mode nav {
+            background-color: #C5C5C5;
+        }
+
+        .colorblind-mode nav a {
+            color: #0000FF;
+        }
+
+        .colorblind-mode .about-section {
+            background-color: #DDE1E4;
+        }
+
+        .colorblind-mode .team-section {
+            background-color: #CCDDEE;
+        }
+
+        .colorblind-mode footer {
+            background-color: #C5C5C5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main Navigation">
+        <a class="navbar-brand" href="#" aria-label="GLV Architects Home">GLV Architects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" aria-label="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About Us">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-label="Our Portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="expertise.html" aria-label="Our Expertise">Expertise</a></li>
+            </ul>
+        </div>
+        <div class="toggle" aria-label="Toggle Theme Modes">
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Dark Mode</button>
+            <button onclick="toggleColorblindMode()" aria-label="Toggle Colorblind Mode">Colorblind Mode</button>
+        </div>
+    </nav>
+
+    <section class="about-section" aria-labelledby="about-title">
+        <h2 id="about-title">About GLV Architects</h2>
+        <p>At GLV Architects, we believe architecture is more than just designing buildings – it's about creating meaningful spaces that inspire and connect people. With over a decade of experience, we specialize in contemporary, sustainable architecture that respects the environment and enhances the quality of life for communities.</p>
+        <p>Our team is composed of passionate architects, designers, and innovators who strive to push the boundaries of design while remaining dedicated to the core values of integrity, creativity, and collaboration. From residential projects to large-scale commercial buildings, we are committed to delivering world-class solutions that meet the unique needs of each client.</p>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 id="team-title">Meet Our Team</h2>
+            <div class="team-cards" aria-labelledby="team-title">
+                <div class="team-card" aria-labelledby="team-member-1">
+                    <img src="https://via.placeholder.com/150" alt="Vaibhav Srivastava">
+                    <h3 id="team-member-1">Vaibhav Srivastava</h3>
+                    <p>Founder & Lead Architect</p>
+                </div>
+                <div class="team-card" aria-labelledby="team-member-2">
+                    <img src="https://via.placeholder.com/150" alt="Jane Smith">
+                    <h3 id="team-member-2">Jane Smith</h3>
+                    <p>Project Manager</p>
+                </div>
+                <div class="team-card" aria-labelledby="team-member-3">
+                    <img src="https://via.placeholder.com/150" alt="Mike Johnson">
+                    <h3 id="team-member-3">Mike Johnson</h3>
+                    <p>Senior Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 GLV Architects. All Rights Reserved.</p>
+            <p>
+                <a href="#" aria-label="Facebook">Facebook</a> |
+                <a href="#" aria-label="Twitter">Twitter</a> |
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle("colorblind-mode");
+        }
+    </script>
+</body>
+
+</html>

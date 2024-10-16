@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - GLV Architects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s, color 0.3s;
+            color: #2B2D42;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #1d1e21;
+            color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+        }
+
+        .dark-mode nav {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode nav a {
+            color: #FFD166;
+        }
+
+        .dark-mode .form-container {
+            background-color: #3A3D5C;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+        .dark-mode h2 {
+            color: #FFD166;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+
+        /* Colorblind Mode */
+        .colorblind-mode {
+            background-color: #F5F5F5;
+            color: #202020;
+        }
+
+        .colorblind-mode nav {
+            background-color: #C5C5C5;
+        }
+
+        .colorblind-mode nav a {
+            color: #0000FF;
+        }
+
+        .colorblind-mode .form-container {
+            background-color: #DDE1E4;
+        }
+
+        .colorblind-mode footer {
+            background-color: #C5C5C5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main Navigation">
+        <a class="navbar-brand" href="#" aria-label="GLV Architects Home">GLV Architects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" aria-label="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About Us">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-label="Our Portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="expertise.html" aria-label="Our Expertise">Expertise</a></li>
+            </ul>
+        </div>
+        <div class="toggle" aria-label="Toggle Theme Modes">
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Dark Mode</button>
+            <button onclick="toggleColorblindMode()" aria-label="Toggle Colorblind Mode">Colorblind Mode</button>
+        </div>
+    </nav>
+
+    <!-- Book an Appointment Section -->
+    <section class="section" aria-labelledby="appointment-title">
+        <div class="container">
+            
+            <div class="form-container">
+                <h2>Book an Appointment</h2>
+                <form aria-label="Appointment Form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" class="form-control" id="name" required aria-required="true" aria-label="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" class="form-control" id="email" required aria-required="true" aria-label="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" required aria-required="true" aria-label="Phone Number" pattern="^\d{10}$" title="Please enter a valid 10-digit phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Preferred Date:</label>
+                        <input type="date" class="form-control" id="date" required aria-required="true" aria-label="Preferred Date">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time:</label>
+                        <input type="time" class="form-control" id="time" required aria-required="true" aria-label="Preferred Time">
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Additional Details:</label>
+                        <textarea class="form-control" id="details" rows="4" required aria-required="true" aria-label="Additional Details"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" aria-label="Submit Appointment Request">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 GLV Architects. All Rights Reserved.</p>
+            <p>
+                <a href="#" aria-label="Facebook">Facebook</a> |
+                <a href="#" aria-label="Twitter">Twitter</a> |
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle('colorblind-mode');
+        }
+    </script>
+</body>
+
+</html>

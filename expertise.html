@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Expertise - GLV Architects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s, color 0.3s;
+            color: #2B2D42;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .expertise-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .expertise-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            flex: 0 0 48%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .expertise-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .expertise-item h3 {
+            margin-top: 15px;
+            color: #333;
+        }
+
+        footer {
+            background-color: #1d1e21;
+            color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+        }
+
+        .dark-mode nav {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode nav a {
+            color: #FFD166;
+        }
+
+        .dark-mode .expertise-item {
+            background-color: #3A3D5C;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode h3 , h2{
+            color: #EDF2F4
+        }
+
+        /* Colorblind Mode */
+        .colorblind-mode {
+            background-color: #F5F5F5;
+            color: #202020;
+        }
+
+        .colorblind-mode nav {
+            background-color: #C5C5C5;
+        }
+
+        .colorblind-mode nav a {
+            color: #0000FF;
+        }
+
+        .colorblind-mode .expertise-item {
+            background-color: #DDE1E4;
+        }
+
+        .colorblind-mode footer {
+            background-color: #C5C5C5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main Navigation">
+        <a class="navbar-brand" href="#" aria-label="GLV Architects Home">GLV Architects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" aria-label="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About Us">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-label="Our Portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#expertise.html" aria-label="Our Expertise">Expertise</a></li>
+            </ul>
+        </div>
+        <div class="toggle" aria-label="Toggle Theme Modes">
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Dark Mode</button>
+            <button onclick="toggleColorblindMode()" aria-label="Toggle Colorblind Mode">Colorblind Mode</button>
+        </div>
+    </nav>
+
+    <!-- Expertise Section -->
+    <section class="section" aria-labelledby="expertise-title">
+        <div class="container">
+            <h2 id="expertise-title">Our Expertise</h2>
+            <div class="expertise-container">
+                <div class="expertise-item" aria-labelledby="residential-title">
+                    <img src="architecture1.jpg" alt="Residential Architecture">
+                    <h3 id="residential-title">Residential Architecture</h3>
+                    <p>Our expertise in residential architecture ensures that we design homes that are not only beautiful but also sustainable and functional, tailored to meet your specific needs.</p>
+                </div>
+                <div class="expertise-item" aria-labelledby="commercial-title">
+                    <img src="architecture2.jpg" alt="Commercial Architecture">
+                    <h3 id="commercial-title">Commercial Architecture</h3>
+                    <p>We design commercial spaces that are innovative, aesthetically pleasing, and align with the needs of your business, creating an inviting atmosphere for customers and employees.</p>
+                </div>
+                <div class="expertise-item" aria-labelledby="interior-title">
+                    <img src="architecture3.jpg" alt="Interior Design">
+                    <h3 id="interior-title">Interior Design</h3>
+                    <p>Our interior design team blends style with functionality, ensuring every space we design maximizes both comfort and visual appeal.</p>
+                </div>
+                <div class="expertise-item" aria-labelledby="landscape-title">
+                    <img src="architecture4.jpg" alt="Landscape Architecture">
+                    <h3 id="landscape-title">Landscape Architecture</h3>
+                    <p>We create outdoor environments that are harmonious with nature, combining aesthetic landscaping with ecological sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 GLV Architects. All Rights Reserved.</p>
+            <p>
+                <a href="#" aria-label="Facebook">Facebook</a> |
+                <a href="#" aria-label="Twitter">Twitter</a> |
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle('colorblind-mode');
+        }
+    </script>
+</body>
+
+</html>

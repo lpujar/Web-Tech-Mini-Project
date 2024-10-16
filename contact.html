@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GLV Architects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s, color 0.3s;
+            color: #2B2D42;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #e67e22;
+        }
+
+        footer {
+            background-color: #1d1e21;
+            color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+        }
+
+        .dark-mode nav {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode nav a {
+            color: #FFD166;
+        }
+
+        .dark-mode .contact-form {
+            background-color: #3A3D5C;
+            color: #EDF2F4;
+        }
+
+        .dark-mode .contact-form input,
+        .dark-mode .contact-form textarea {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+            border-color: #FFD166;
+        }
+
+        .dark-mode .contact-form button {
+            background-color: #E9C46A;
+            color: #2B2D42;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+
+        /* Colorblind Mode */
+        .colorblind-mode {
+            background-color: #F5F5F5;
+            color: #202020;
+        }
+
+        .colorblind-mode nav {
+            background-color: #C5C5C5;
+        }
+
+        .colorblind-mode nav a {
+            color: #0000FF;
+        }
+
+        .colorblind-mode .contact-form {
+            background-color: #DDE1E4;
+        }
+
+        .colorblind-mode .contact-form input,
+        .colorblind-mode .contact-form textarea {
+            background-color: #CCDDEE;
+            color: #000000;
+            border-color: #777777;
+        }
+
+        .colorblind-mode .contact-form button {
+            background-color: #003399;
+            color: #FFFFFF;
+        }
+
+        .colorblind-mode footer {
+            background-color: #C5C5C5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main Navigation">
+        <a class="navbar-brand" href="#" aria-label="GLV Architects Home">GLV Architects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" aria-label="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About Us">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-label="Our Portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="expertise.html" aria-label="Our Expertise">Expertise</a></li>
+            </ul>
+        </div>
+        <div class="toggle" aria-label="Toggle Theme Modes">
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Dark Mode</button>
+            <button onclick="toggleColorblindMode()" aria-label="Toggle Colorblind Mode">Colorblind Mode</button>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            
+
+            <form class="contact-form" aria-labelledby="contact-title" aria-label="Contact Form">
+                <h1 style="text-align: center;"><label for="name">Contact Us</label></h1>
+                <label for="name">Enter Your Name</label>
+                <input type="text" id="name" placeholder="Your Name" required aria-label="Your Name" aria-required="true">
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required aria-label="Your Email" aria-required="true">
+                
+                <label for="message">Message</label>
+                <textarea id="message" rows="6" placeholder="Your Message" required aria-label="Your Message" aria-required="true"></textarea>
+                
+                <button type="submit" aria-label="Send Message">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 GLV Architects. All Rights Reserved.</p>
+            <p>
+                <a href="#" aria-label="Facebook">Facebook</a> |
+                <a href="#" aria-label="Twitter">Twitter</a> |
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle("colorblind-mode");
+        }
+    </script>
+</body>
+
+</html>

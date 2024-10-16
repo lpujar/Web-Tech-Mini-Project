@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Center - GLV Architects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Same styles as the luxury apartment page */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #2B2D42;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #f8f9fa !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .hero-section {
+            background-image: url('images/Cultural-Centre.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            z-index: 2;
+            font-size: 48px;
+            color: white;
+            position: relative;
+        }
+
+        .hero-section p {
+            z-index: 2;
+            font-size: 20px;
+            color: white;
+            position: relative;
+        }
+
+        .content {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content h2 {
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #1d1e21;
+            color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #2B2D42;
+            color: #EDF2F4;
+        }
+
+        .dark-mode nav {
+            background-color: #1C1C2E;
+        }
+
+        .dark-mode nav a {
+            color: #FFD166;
+        }
+
+        .dark-mode footer {
+            background-color: #1C1C2E;
+        }
+
+        /* Colorblind Mode */
+        .colorblind-mode {
+            background-color: #F5F5F5;
+            color: #202020;
+        }
+
+        .colorblind-mode nav {
+            background-color: #C5C5C5;
+        }
+
+        .colorblind-mode nav a {
+            color: #0000FF;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle button {
+            background-color: #8D99AE;
+            color: #EDF2F4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle button:hover {
+            background-color: #6C757D;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">GLV Architects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="appointment.html">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="expertise.html">Expertise</a></li>
+            </ul>
+        </div>
+        <div class="toggle">
+            <button onclick="toggleDarkMode()">Dark Mode</button>
+            <button onclick="toggleColorblindMode()">Colorblind Mode</button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <h1>Cultural Center</h1>
+        <p>A Hub for Art and Culture</p>
+    </header>
+
+    <section class="content">
+        <h2>Project Overview</h2>
+        <p>The Cultural Center is designed to be a vibrant hub for artistic expression and cultural exchange, providing spaces for exhibitions, performances, and community events.</p>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li>Multi-purpose event spaces</li>
+            <li>Exhibition halls with natural lighting</li>
+            <li>Outdoor amphitheater for performances</li>
+            <li>Accessible facilities for all</li>
+        </ul>
+
+        <img src="images/Cultural Centre img-1.jpg" alt="Cultural Center Design">
+
+        <img src="images/Cultural Centre img-2.jpg" alt="Cultural Center Events">
+
+        <img src="images/Cultural Centre.jpg" alt="Cultural Center Interior">
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GLV Architects. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.remove('colorblind-mode');
+        }
+
+        function toggleColorblindMode() {
+            document.body.classList.toggle('colorblind-mode');
+            document.body.classList.remove('dark-mode');
+        }
+    </script>
+</body>
+
+</html>
