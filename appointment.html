@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             transition: background-color 0.3s, color 0.3s;
-            color: #2B2D42;
+            color: #6d73b2;
         }
 
         .navbar {
@@ -94,13 +94,6 @@
         .dark-mode footer {
             background-color: #1C1C2E;
         }
-        .dark-mode h2 {
-            color: #FFD166;
-        }
-
-        .dark-mode footer {
-            background-color: #1C1C2E;
-        }
 
         /* Colorblind Mode */
         .colorblind-mode {
@@ -139,7 +132,7 @@
                 <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About Us">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-label="Our Portfolio">Portfolio</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html" aria-label="Contact Us">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#appointment.html" aria-label="Book an Appointment">Book an Appointment</a></li>
                 <li class="nav-item"><a class="nav-link" href="expertise.html" aria-label="Our Expertise">Expertise</a></li>
             </ul>
         </div>
@@ -152,7 +145,6 @@
     <!-- Book an Appointment Section -->
     <section class="section" aria-labelledby="appointment-title">
         <div class="container">
-            
             <div class="form-container">
                 <h2>Book an Appointment</h2>
                 <form aria-label="Appointment Form">
@@ -166,16 +158,15 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
-                        <input type="tel" class="form-control" id="phone" required aria-required="true" aria-label="Phone Number" pattern="^\d{10}$" title="Please enter a valid 10-digit phone number">
+                        <input type="tel" pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" required>
                     </div>
-                    
                     <div class="form-group">
                         <label for="date">Preferred Date:</label>
-                        <input type="date" class="form-control" id="date" required aria-required="true" aria-label="Preferred Date">
+                        <input type="date" id="preferredDate" name="preferredDate" required>
                     </div>
                     <div class="form-group">
                         <label for="time">Preferred Time:</label>
-                        <input type="time" class="form-control" id="time" required aria-required="true" aria-label="Preferred Time">
+                        <input type="time" id="preferredTime" name="preferredTime" required>
                     </div>
                     <div class="form-group">
                         <label for="details">Additional Details:</label>
@@ -209,6 +200,29 @@
         function toggleColorblindMode() {
             document.body.classList.toggle('colorblind-mode');
         }
+
+        // Get tomorrow's date in YYYY-MM-DD format
+        let tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        let tomorrowStr = tomorrow.toISOString().split('T')[0];
+
+        // Set the 'min' attribute of the date input to tomorrow's date
+        document.getElementById("preferredDate").setAttribute("min", tomorrowStr);
+
+        // Add an event listener to the 'preferredDate' input field
+        document.getElementById("preferredDate").addEventListener("change", function () {
+            let selectedDate = new Date(this.value);  // Get the selected date
+            let now = new Date();  // Get the current date and time
+
+            // Reset the 'min' attribute of the time field
+            document.getElementById("preferredTime").removeAttribute("min");
+
+            // Check if the selected date is today
+            if (selectedDate.toDateString() === now.toDateString()) {
+                // If the date is today, set the 'min' attribute of the time field to the current time
+                document.getElementById("preferredTime").setAttribute("min", now.toTimeString().split(' ')[0]);
+            }
+        });
     </script>
 </body>
 
