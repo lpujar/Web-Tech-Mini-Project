@@ -25,8 +25,8 @@ The **GLV ARCHITECTS** website is a sleek, responsive platform designed to showc
 
 ## Meet the Team
 **Laxmi Pujar
-  Vaibhav Srivastava
-  K Goutami**
+  ** Vaibhav Srivastava
+ ** K Goutami**
 
 
 ## Features
