@@ -167,7 +167,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main Navigation">
-        <a class="navbar-brand" href="index.html" aria-label="GLV Architects Home">GLV Architects</a>
+        <a class="navbar-brand" href="#" aria-label="GLV Architects Home">GLV Architects</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -233,6 +233,44 @@
             document.body.classList.toggle("colorblind-mode");
         }
     </script>
+    <script>
+        // Load data from local storage when the page loads
+        window.onload = function() {
+            const name = localStorage.getItem("name");
+            const email = localStorage.getItem("email");
+            const message = localStorage.getItem("message");
+    
+            if (name) document.getElementById("name").value = name;
+            if (email) document.getElementById("email").value = email;
+            if (message) document.getElementById("message").value = message;
+        };
+    
+        // Save data to local storage when the form is submitted
+        document.querySelector(".contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+    
+            // Save the input values to local storage
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+    
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("message", message);
+    
+            // Optionally, you can display a message or clear the form
+            alert("Your message has been saved!");
+        });
+    
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    
+        function toggleColorblindMode() {
+            document.body.classList.toggle("colorblind-mode");
+        }
+    </script>
+    
 </body>
 
 </html>
