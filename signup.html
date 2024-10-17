@@ -11,11 +11,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         body {
-            background-color: #2B2D42;
+            background-color: #626efd;
             color: #EDF2F4;
             font-family: 'Helvetica', sans-serif;
             margin: 0;
-            padding-top: 75px; /* Adds space for the navbar */
+            padding-top: 75px;
         }
 
         .container {
@@ -26,7 +26,7 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
-            margin-top: 20px; /* Extra margin to prevent overlap */
+            margin-top: 20px;
         }
 
         h2 {
@@ -81,7 +81,6 @@
             cursor: pointer;
         }
 
-        /* Dark Mode & Colorblind Mode Styles */
         .dark-mode {
             background-color: #1C1C2E;
             color: #EDF2F4;
@@ -105,7 +104,6 @@
             color: #0000FF;
         }
 
-        /* Navbar & Toggle Button Styles */
         .navbar {
             background-color: #343a40;
             width: 100%;
@@ -146,7 +144,6 @@
             margin-top: 100px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .navbar-nav {
                 text-align: center;
@@ -165,17 +162,18 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">GLV Architects</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto"> <!-- Navbar aligned to right -->
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="appointment.html">Book an Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="expertise.html">Expertise</a></li>
                 </ul>
                 <div class="toggle ml-auto">
                     <button onclick="toggleDarkMode()">Dark Mode</button>
@@ -194,7 +192,8 @@
             <label for="loginPassword">Password:</label>
             <input type="password" id="loginPassword" required aria-required="true" aria-describedby="loginPasswordDesc">
             <button type="button" onclick="authenticate()" aria-label="Login">Login</button>
-            <p id="loginError" style="color: red; display: none;" aria-live="assertive">Invalid credentials, please try again.</p>
+            <p id="loginError" style="color: red; display: none;" aria-live="assertive">Invalid credentials, please try
+                again.</p>
         </form>
         <div class="form-switch">
             <p>Don't have an account? <a id="signupLink" aria-label="Switch to signup form">Sign Up</a></p>
@@ -226,8 +225,10 @@
             <input type="text" id="username" name="username" required aria-required="true">
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number.">
-            <small style="color: #FFD166;">Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number.</small>
+            <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number.">
+            <small style="color: #FFD166;">Password must contain at least 8 characters, including one uppercase letter,
+                one lowercase letter, and one number.</small>
 
             <button type="button" onclick="submitRegistration()" aria-label="Sign up">Sign Up</button>
         </form>
@@ -258,11 +259,14 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            userData = { firstName, surname, gender, address, username, password };
-            localStorage.setItem('userData', JSON.stringify(userData));
-
-            alert('Registration Successful');
-            showLoginForm();
+            if (password.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) {
+                userData = { firstName, surname, gender, address, username, password };
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert('Registration Successful');
+                showLoginForm();
+            } else {
+                alert('Password does not meet the requirements.');
+            }
         }
 
         document.getElementById('signupLink').addEventListener('click', showSignupForm);
