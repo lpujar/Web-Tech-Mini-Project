@@ -1,6 +1,6 @@
 ## Architect Design Website
 
-## LV ARCHITECTS
+## GLV ARCHITECTS
 
 Welcome to GLV ARCHITECTS, an elegant and responsive website for architect design services. This platform allows users to explore design templates, book appointments, and interact with various aspects of interior design, providing a seamless experience for both designers and customers.
 
